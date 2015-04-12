@@ -13,10 +13,24 @@ class CalculatorBrain
 //    op可能是操作数或者操作符.
     
 //    枚举
-    private enum Op{
+//    Printable是协议
+    private enum Op:Printable{
         case Operand(Double)
         case UnaryOperation(String,Double->Double)
         case BinaryOperation(String,(Double,Double)->Double)
+        
+        var description: String{
+            get{
+                switch self{
+                case .Operand(let operand):
+                    return "\(operand)"
+                case .UnaryOperation(let symbol, _):
+                    return symbol
+                case .BinaryOperation(let symbol, _):
+                    return symbol
+                }
+            }
+        }
     }
     
 //    数组栈的创建.用括号调用了数组的 initializer,初始化数组
@@ -25,8 +39,6 @@ class CalculatorBrain
     //    已知的运算符字典,键为运算符,值为 Op 里面的运算方法,用括号调用了字典的 initializer
     private var knownOps=Dictionary<String,Op>()
     //    var knownOps=[String,Op]()
-    
-    
     
 
 //    初始化方法:
@@ -43,9 +55,26 @@ class CalculatorBrain
         knownOps["√"]=Op.UnaryOperation("√",sqrt)
     }
     
+////    初始化方法:
+//    init(){
+////        内部函数
+//        func learnOp(op: Op){
+//            knownOps[op.description] = op
+//        }
+//        learnOp(Op.BinaryOperation("×", *))
+//        learnOp(Op.BinaryOperation("−"){$1-$0})
+//        learnOp(Op.BinaryOperation("+",+))
+//        learnOp(Op.BinaryOperation("÷"){$1/$0})
+//        learnOp(Op.UnaryOperation("√",sqrt))
+//
+//    }
+    
+    
+    
 //    将操作符和运算压入数组栈中
-    func pushOperand(operand:Double){
+    func pushOperand(operand:Double) -> Double?{
         opStack.append(Op.Operand(operand))
+        return evaluate()
     }
     
     
@@ -82,6 +111,7 @@ class CalculatorBrain
 //    对栈: opStack 进行求值
     func evaluate()->Double?{
         let (result, remainder) = evaluate(opStack)
+        println("\(opStack) =  \(result) with \(remainder) left over")
         return result
     }
     
@@ -89,11 +119,12 @@ class CalculatorBrain
     
     
 //    运算符操作,每次执行此方法时,需要到 knownOps 里面去找已知的运算,然后把这个运算压入 opStack 里面.
-    func performOperation(symbol:String){
+    func performOperation(symbol:String) -> Double?{
 //        operation是一个 optional类型
         if let operation=knownOps[symbol]{
             opStack.append(operation)
         }
+        return evaluate()
     }
     
     

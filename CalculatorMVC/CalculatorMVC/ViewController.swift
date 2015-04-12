@@ -15,46 +15,21 @@ class ViewController : UIViewController {
     
     var userIsInTheMiddleOfTypingANumber = false
     
+    var brain = CalculatorBrain()
+    
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber{
             enter()
         }
-        switch operation{
-            //          闭包
-        case "+":performOperation({(op1:Double,op2:Double) ->Double in
-            return op1 + op2
-        })
-            //          不需要指定类型,靠Swift的类型推断
-        case "−":performOperation({(op1,op2) in op2 - op1})
-        case "×":performOperation(multiply)
-            //Swift不强制要求给两个参数命名,如果不制定参数,函数将会给参数自动命名为$0,$1,$2
-        case "÷":performOperation({$1 / $0})
-            
-            //Swift中方法的最后一个参数可以放到括号外面来,如果只有一个参数,可以去掉方法的括号.
-            //            case "÷":performOperation{$0 / $1}
-        case "√":performOperation2{sqrt($0)}
-        default:break
+        if let operation = sender.currentTitle{
+            if let result = brain.performOperation(operation){
+                displayValue = result
+            }else{
+                displayValue = 0
+            }
         }
     }
     
-    func performOperation(operation : (Double, Double)->Double) {
-        if (operandStack.count >= 2) {
-            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func performOperation2(operation : Double->Double) {
-        if (operandStack.count >= 1) {
-            displayValue = operation(operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func multiply(op1 : Double, op2 : Double)->Double {
-        return op1 * op2
-    }
     
     //定义消息方法
     @IBAction func appendDigit(sender : UIButton) {
@@ -74,8 +49,11 @@ class ViewController : UIViewController {
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        operandStack.append(displayValue)
-        println("operandStack=\(operandStack)")
+        if let result = brain.pushOperand(displayValue){
+            displayValue = result
+        }else{
+            displayValue = 0
+        }
     }
     
     var displayValue:Double{

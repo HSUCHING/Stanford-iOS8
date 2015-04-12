@@ -33,7 +33,7 @@ class ViewController : UIViewController {
             
 //Swift中方法的最后一个参数可以放到括号外面来,如果只有一个参数,可以去掉方法的括号.
 //            case "÷":performOperation{$0 / $1}
-            case "√":performOperation2{sqrt($0)}
+            case "√":performOperation{sqrt($0)}
             default:break
         }
     }
@@ -45,7 +45,7 @@ class ViewController : UIViewController {
 		}
 	}
 
-    func performOperation2(operation : Double->Double) {
+    func performOperation(operation : Double->Double) {
 		if (operandStack.count >= 1) {
 			displayValue = operation(operandStack.removeLast())
             enter()

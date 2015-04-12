@@ -13,6 +13,7 @@
 		075C2A5F1ADA35470099587A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075C2A5E1ADA35470099587A /* Images.xcassets */; };
 		075C2A621ADA35470099587A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075C2A601ADA35470099587A /* LaunchScreen.xib */; };
 		075C2A6E1ADA35470099587A /* CalculatorMVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C2A6D1ADA35470099587A /* CalculatorMVCTests.swift */; };
+		075C2A781ADA3F890099587A /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C2A771ADA3F890099587A /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		075C2A671ADA35470099587A /* CalculatorMVCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorMVCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		075C2A6C1ADA35470099587A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		075C2A6D1ADA35470099587A /* CalculatorMVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorMVCTests.swift; sourceTree = "<group>"; };
+		075C2A771ADA3F890099587A /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorBrain.swift; path = ../CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		075C2A541ADA35460099587A /* CalculatorMVC */ = {
 			isa = PBXGroup;
 			children = (
+				075C2A771ADA3F890099587A /* CalculatorBrain.swift */,
 				075C2A591ADA35470099587A /* ViewController.swift */,
 				075C2A5B1ADA35470099587A /* Main.storyboard */,
 				075C2A551ADA35460099587A /* Supporting Files */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075C2A781ADA3F890099587A /* CalculatorBrain.swift in Sources */,
 				075C2A5A1ADA35470099587A /* ViewController.swift in Sources */,
 				075C2A581ADA35460099587A /* AppDelegate.swift in Sources */,
 			);

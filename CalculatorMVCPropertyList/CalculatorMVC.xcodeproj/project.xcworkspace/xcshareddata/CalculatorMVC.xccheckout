@@ -14,7 +14,7 @@
 		<string>https://github.com/HSUCHING/Stanford-iOS8.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CalculatorMVC/CalculatorMVC.xcodeproj</string>
+	<string>CalculatorMVCPropertyList/CalculatorMVC.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5BB8B5757E978E071F747D3C347DCCEC780DF50C</key>

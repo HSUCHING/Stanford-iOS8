@@ -5,20 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FA03F791-D396-4425-B679-6D8096384FB7</string>
+	<string>552ED88B-B024-4F2A-8D85-F042B7B14B9A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>CalculatorMVC</string>
+	<string>Swift</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5BB8B5757E978E071F747D3C347DCCEC780DF50C</key>
 		<string>https://github.com/HSUCHING/Stanford-iOS8.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CalculatorMVC/CalculatorMVC.xcodeproj</string>
+	<string>Swift.playground</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5BB8B5757E978E071F747D3C347DCCEC780DF50C</key>
-		<string>../../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/HSUCHING/Stanford-iOS8.git</string>
